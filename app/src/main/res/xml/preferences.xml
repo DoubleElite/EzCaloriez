@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+        android:title="Daily Calorie Amount"
+        android:inputType="number"
+        android:key="@string/prefs_key_daily_calorie_amount"
+        android:summary="Please provide the max amount of calories that you'd like to aim for each day" />
+</PreferenceScreen>

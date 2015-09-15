@@ -6,5 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface IHistoryView {
-    void UpdateListView(List<CalorieHistory> list);
+    void InsertNewListItem(CalorieHistory calorieHistoryItem);
+    void UpdateDailyCalorieViewAmount(int amount);
 }
