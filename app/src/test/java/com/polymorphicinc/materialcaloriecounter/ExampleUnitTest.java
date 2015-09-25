@@ -1,4 +1,4 @@
-package com.polymorphicinc.materialcaloriecounter;
+package com.polymorphicinc.ezcaloriez;
 
 import org.junit.Test;
 

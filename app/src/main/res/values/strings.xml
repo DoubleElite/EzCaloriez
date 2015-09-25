@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Material Calorie Counter</string>
+    <string name="app_name">Ez Caloriez</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
@@ -7,5 +7,9 @@
     <string name="title_activity_preference">Preferences</string>
 
     <string name="prefs_key_daily_calorie_amount">prefs_key_daily_calorie_amount</string>
+    <string name="prefs_description_daily_calorie_amount">Please provide the max amount of calories that you\'d like to aim for each day. Will take affect on the next daily reset.</string>
     <string name="prefs_key_current_calorie_amount">prefs_key_current_calorie_amount</string>
+
+    <string name="prefs_key_add_button_locations">prefs_key_add_button_locations</string>
+    <string name="prefs_description_add_button_locations">Where would you like the "+" button to appear?</string>
 </resources>

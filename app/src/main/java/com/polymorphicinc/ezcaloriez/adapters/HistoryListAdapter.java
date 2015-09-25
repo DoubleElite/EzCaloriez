@@ -1,4 +1,4 @@
-package com.polymorphicinc.materialcaloriecounter.adapters;
+package com.polymorphicinc.ezcaloriez.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.polymorphicinc.materialcaloriecounter.CalorieHistory;
-import com.polymorphicinc.materialcaloriecounter.R;
+import com.polymorphicinc.ezcaloriez.CalorieHistory;
+import com.polymorphicinc.ezcaloriez.R;
 
 import java.util.List;
 
@@ -34,8 +34,9 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
     public void onBindViewHolder(HistoryListViewHolder holder, int position) {
         // Get the current calorHistory object and set it's data to the views.
         CalorieHistory calorieHistory = calorieHistoryList.get(position);
-        //holder.tvDate.setText(calorieHistory.date);
-        //holder.tvAmount.setText(calorieHistory.numberOfCalories);
+        holder.tvDate.setText(calorieHistory.date);
+        String calorieAmount = String.valueOf(calorieHistory.numberOfCalories) + " calories";
+        holder.tvAmount.setText(calorieAmount);
     }
 
     @Override

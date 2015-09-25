@@ -1,11 +1,10 @@
-package com.polymorphicinc.materialcaloriecounter.ui;
+package com.polymorphicinc.ezcaloriez.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 
-import com.polymorphicinc.materialcaloriecounter.R;
+import com.polymorphicinc.ezcaloriez.R;
 
 public class PreferenceScreenActivity extends Activity {
 

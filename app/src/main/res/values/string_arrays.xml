@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="AddButtonLocations">
+        <item>Center</item>
+        <item>Right</item>
+    </string-array>
+    <string-array name="AddButtonLocationsValues">
+        <item>center</item>
+        <item>right</item>
+    </string-array>
+</resources>
