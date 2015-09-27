@@ -1,0 +1,1 @@
+alter table CALORIEHISTORY add TITLE TEXT;

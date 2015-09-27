@@ -17,6 +17,7 @@
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar"
+            android:background="@color/primary"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_scrollFlags="scroll|enterAlways"
@@ -31,6 +32,7 @@
                 android:layout_gravity="top|center"
                 android:paddingTop="24dp"
                 android:textSize="24sp"
+                android:textColor="#ffffff"
                 android:text="@string/activity_text_calorie_title" />
 
             <TextView
@@ -41,6 +43,7 @@
                 android:paddingTop="32dp"
                 android:textSize="48sp"
                 android:textStyle="bold"
+                android:textColor="#ffffff"
                 tools:text="1600" />
 
 
@@ -60,6 +63,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/rv_history_2"
+        android:paddingBottom="@dimen/cardview_margin_vertical_top"
+        android:clipToPadding="false"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
 
@@ -67,7 +72,11 @@
         android:id="@+id/fab_add_calorie"
         app:layout_anchor="@id/app_bar_layout"
         app:layout_anchorGravity="bottom|center"
+        android:layout_margin="16dp"
+        app:borderWidth="0dp"
+        android:elevation="6dp"
         android:layout_width="wrap_content"
+        android:tint="#ffffff"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_action_add"/>
 
