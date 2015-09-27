@@ -34,9 +34,13 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
     public void onBindViewHolder(HistoryListViewHolder holder, int position) {
         // Get the current calorHistory object and set it's data to the views.
         CalorieHistory calorieHistory = calorieHistoryList.get(position);
+        // SET DATE
         holder.tvDate.setText(calorieHistory.date);
+        // SET AMOUNT
         String calorieAmount = String.valueOf(calorieHistory.numberOfCalories) + " calories";
         holder.tvAmount.setText(calorieAmount);
+        // SET TIME
+        holder.tvTime.setText(calorieHistory.time);
     }
 
     @Override
@@ -48,11 +52,13 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
     public static class HistoryListViewHolder extends RecyclerView.ViewHolder {
         public TextView tvDate;
         public TextView tvAmount;
+        public TextView tvTime;
 
         public HistoryListViewHolder(View v) {
             super(v);
             tvDate = (TextView) v.findViewById(R.id.calorie_date);
             tvAmount = (TextView) v.findViewById(R.id.calorie_amount);
+            tvTime = (TextView) v.findViewById(R.id.calorie_time);
         }
     }
 

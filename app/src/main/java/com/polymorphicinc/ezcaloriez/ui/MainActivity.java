@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements IHistoryView {
     protected void onResume() {
         super.onResume();
         if(historyPresenter.HasCurrentCalorieAmountChanged()) {
+            Log.d("App", "True");
             historyPresenter.CheckForCalorieAmountFromPrefs();
             historyPresenter.ResetCalorieHasChangedPref();
         }

@@ -56,7 +56,7 @@ public class HistoryPresenter implements IHistoryPresenter {
         String currentDate = simpleDateFormat.format(calendar.getTime());
 
         // Get the time
-        SimpleDateFormat timeDateFormatter = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        SimpleDateFormat timeDateFormatter = new SimpleDateFormat("h:mm a", Locale.getDefault());
         String time = timeDateFormatter.format(Calendar.getInstance().getTime());
 
         // Create the calorie history item and then save it (via ORM Sugar Library)

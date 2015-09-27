@@ -57,7 +57,7 @@ public class HistoryModel implements IHistoryModel {
     public int GetCurrentCalorieAmount() {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         // Check if the calorie amount has been saved yet, if so we want to grab it from prefs
-        if (sp.getString("prefs_key_current_calorie_amount", null) != null)
+        if (sp.getString("prefs_key_current_calorie_amount", null) != null && !sp.getString("prefs_key_current_calorie_amount", null).equals(""))
             return Integer.valueOf(sp.getString("prefs_key_current_calorie_amount", "1600"));
         else
             return 0;
