@@ -41,6 +41,8 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
         holder.tvAmount.setText(calorieAmount);
         // SET TIME
         holder.tvTime.setText(calorieHistory.time);
+        // SET TITLE
+        holder.tvTitle.setText(calorieHistory.title);
     }
 
     @Override
@@ -53,12 +55,14 @@ public class HistoryListAdapter extends RecyclerView.Adapter<HistoryListAdapter.
         public TextView tvDate;
         public TextView tvAmount;
         public TextView tvTime;
+        public TextView tvTitle;
 
         public HistoryListViewHolder(View v) {
             super(v);
             tvDate = (TextView) v.findViewById(R.id.calorie_date);
             tvAmount = (TextView) v.findViewById(R.id.calorie_amount);
             tvTime = (TextView) v.findViewById(R.id.calorie_time);
+            tvTitle = (TextView) v.findViewById(R.id.calorie_title);
         }
     }
 

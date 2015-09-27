@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -140,15 +141,22 @@ public class MainActivity extends AppCompatActivity implements IHistoryView {
 
     @Override
     public void PickCalorieLimit() {
-        // EditText to be used in the dialog
+        // Views to be used in the alert dialog
         final LinearLayout paddingLayout = new LinearLayout(context);
+
+        // Create the edit text and the textinputlayout for the material design floating label effect
         final EditText etSetCalorieLimit = new EditText(context);
-        etSetCalorieLimit.setInputType(InputType.TYPE_CLASS_NUMBER);
+            etSetCalorieLimit.setInputType(InputType.TYPE_CLASS_NUMBER);
+            etSetCalorieLimit.setHint("Daily Calorie Goal");
+        final TextInputLayout textInputLayoutCalorieLimit = new TextInputLayout(context);
+            textInputLayoutCalorieLimit.addView(etSetCalorieLimit);
 
         paddingLayout.setOrientation(LinearLayout.VERTICAL);
         paddingLayout.setGravity(Gravity.CENTER_HORIZONTAL);
         paddingLayout.setPadding(64, 0, 64, 0);
-        paddingLayout.addView(etSetCalorieLimit);
+
+        // Add views
+        paddingLayout.addView(textInputLayoutCalorieLimit);
 
         // TODO Prevent the user from putting nothing in.
         final AlertDialog alertDialog = new AlertDialog.Builder(this, R.style.AlertDialogCustom)
@@ -237,19 +245,35 @@ public class MainActivity extends AppCompatActivity implements IHistoryView {
 
     @OnClick(R.id.fab_add_calorie)
     public void showCalorieDialog() {
-        // EditText to be used in the dialog
-        final LinearLayout paddingLayout = new LinearLayout(context);
-        final EditText etAddCalorie = new EditText(context);
-        etAddCalorie.setInputType(InputType.TYPE_CLASS_NUMBER);
 
-        paddingLayout.setOrientation(LinearLayout.VERTICAL);
-        paddingLayout.setGravity(Gravity.CENTER_HORIZONTAL);
-        paddingLayout.setPadding(64, 0, 64, 0);
-        paddingLayout.addView(etAddCalorie);
+        // Create the views we will use in the dialog - One container and two textviews
+        final LinearLayout layout = new LinearLayout(context);
+
+        final EditText etAddCalorie = new EditText(context);
+            etAddCalorie.setInputType(InputType.TYPE_CLASS_NUMBER);
+            etAddCalorie.setHint("Calorie Amount");
+        final EditText etCalorieTitle = new EditText(context);
+            etCalorieTitle.setInputType(InputType.TYPE_CLASS_TEXT);
+            etCalorieTitle.setHint("Title (Optional)");
+
+        // Add the textviews a children of textinputlayout for the material design floating label effect
+        final TextInputLayout textInputLayoutAddCalorie = new TextInputLayout(context);
+            textInputLayoutAddCalorie.addView(etAddCalorie);
+        final TextInputLayout textInputLayoutCalorieTitle = new TextInputLayout(context);
+            textInputLayoutCalorieTitle.addView(etCalorieTitle);
+
+        // Set layout parameters
+        layout.setOrientation(LinearLayout.VERTICAL);
+        layout.setGravity(Gravity.CENTER_HORIZONTAL);
+        layout.setPadding(64, 0, 64, 0);
+
+        // Add the views
+        layout.addView(textInputLayoutAddCalorie);
+        layout.addView(textInputLayoutCalorieTitle);
 
         final AlertDialog alertDialog = new AlertDialog.Builder(this, R.style.AlertDialogCustom)
                 .setTitle("Add new item")
-                .setView(paddingLayout)
+                .setView(layout)
                 .setPositiveButton("Add", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -277,7 +301,11 @@ public class MainActivity extends AppCompatActivity implements IHistoryView {
                     // Do nothing until they enter data
                 } else {
                     // Notify the presenter of the calorie amount that the user entered.
-                    historyPresenter.AddCalorieToHistoryList(Integer.valueOf(etAddCalorie.getText().toString()), Integer.valueOf(tvCalorieAmount.getText().toString()));
+                    historyPresenter.AddCalorieToHistoryList(
+                            Integer.valueOf(etAddCalorie.getText().toString()),
+                            Integer.valueOf(tvCalorieAmount.getText().toString()),
+                            etCalorieTitle.getText().toString()
+                            );
                     alertDialog.dismiss();
                 }
             }

@@ -1,7 +1,7 @@
 package com.polymorphicinc.ezcaloriez.presenters;
 
 public interface IHistoryPresenter {
-    void AddCalorieToHistoryList(int calorieAmount, int currentCalorieAmount);
+    void AddCalorieToHistoryList(int calorieAmount, int currentCalorieAmount, String title);
     void InitializeCalorieLimit();
     void CheckForCalorieAmountFromPrefs();
     void CheckForCalorieHistoryItems();

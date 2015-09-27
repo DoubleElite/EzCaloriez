@@ -49,7 +49,7 @@ public class HistoryPresenter implements IHistoryPresenter {
     }
 
     @Override
-    public void AddCalorieToHistoryList(int calorieAmount, int currentCalorieAmount) {
+    public void AddCalorieToHistoryList(int calorieAmount, int currentCalorieAmount, String title) {
         // Get the date (and covert it the month/day/year format) and the calorie amount from what the user entered.
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/d/yyyy", Locale.US);
@@ -59,8 +59,15 @@ public class HistoryPresenter implements IHistoryPresenter {
         SimpleDateFormat timeDateFormatter = new SimpleDateFormat("h:mm a", Locale.getDefault());
         String time = timeDateFormatter.format(Calendar.getInstance().getTime());
 
+        // Check if the title is empty.
+        String newTitle;
+        if(title.equals(""))
+            newTitle = "Unknown Item";
+        else
+            newTitle = title;
+
         // Create the calorie history item and then save it (via ORM Sugar Library)
-        CalorieHistory calorieHistory = new CalorieHistory(currentDate, calorieAmount, time);
+        CalorieHistory calorieHistory = new CalorieHistory(currentDate, calorieAmount, time, newTitle);
         calorieHistory.save();
 
         // Notify the view of the new item that should be inserted.
